@@ -7,7 +7,7 @@ from my_data_lib.logger import Logger
 
 class PostgresHandler:
     def __init__(self, connection_string: str, table_name: str):
-        self.engine = sqlalchemy.create_engine(os.getenv("DATABASE_URL"))
+        self.engine = sqlalchemy.create_engine(os.getenv("DATABASE_URL") or connection_string)
         self.table_name = table_name
         self.logger = Logger()
 
