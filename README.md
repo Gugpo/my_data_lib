@@ -15,7 +15,7 @@ Uma biblioteca Python para leitura e gravação de dados em múltiplas fontes de
 Clone o repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/Gugpo/my_data_lib.git
 cd your-repo
 pip install -r requirements.txt
 ```
