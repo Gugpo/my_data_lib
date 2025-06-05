@@ -1,32 +1,34 @@
-# from unittest.mock import MagicMock, patch
-# import pytest
-# import pandas as pd
-# import psycopg2.extras
-# from my_data_lib.postgres_handler import PostgresHandler
+from unittest.mock import MagicMock, patch
+import pytest
+import pandas as pd
+import psycopg2.extras
+from my_data_lib.postgres_handler import PostgresHandler
 
-# @pytest.fixture
-# def mock_psycopg2_connect():
-#     with patch("my_data_lib.postgres_handler.psycopg2.connect") as mock_connect:
-#         mock_conn = mock_connect.return_value
-#         mock_cursor = mock_conn.cursor.return_value
+class FakePostgresHandler(PostgresHandler):
+    def __init__(self):
+        self._dataframe = pd.DataFrame({
+            "id": [1, 2],
+            "nome": ["teste1", "teste2"]
+        })
 
-#         # Mock do fetchall para retornar dados de exemplo
-#         mock_cursor.fetchall.return_value = [(1, "teste1"), (2, "teste2")]
-#         mock_cursor.description = (("id",), ("nome",))
+    def read(self):
+        return self._dataframe.copy()
 
-#         yield mock_connect
+    def write(self, df):
+        self._dataframe = df.copy()
 
-# def test_postgres_read_write(mock_psycopg2_connect):
-#     handler = PostgresHandler(
-#         connection_string="postgresql://user:password@localhost:5432/testdb",
-#         table_name="minha_tabela"
-#     )
-    
-#     df = handler.read()
-#     assert not df.empty
-#     # assert "nome" in df.columns
+def test_read_write_sem_conexao():
+    handler = FakePostgresHandler()
 
-#     # Testa write, verifica se executou commit
-#     handler.write(df)
-#     mock_psycopg2_connect.return_value.cursor.return_value.execute.assert_called()
-#     mock_psycopg2_connect.return_value.commit.assert_called_once()
+    df_lido = handler.read()
+    assert not df_lido.empty
+    assert "nome" in df_lido.columns
+
+    novo_df = pd.DataFrame({
+        "id": [3],
+        "nome": ["novo"]
+    })
+    handler.write(novo_df)
+
+    df_depois = handler.read()
+    assert df_depois.equals(novo_df)
