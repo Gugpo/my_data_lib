@@ -16,7 +16,7 @@ Clone o repositório e instale as dependências:
 
 ```bash
 git clone https://github.com/Gugpo/my_data_lib.git
-cd your-repo
+cd my_data_lib
 pip install -r requirements.txt
 ```
 
