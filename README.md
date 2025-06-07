@@ -12,8 +12,6 @@ Uma biblioteca Python para manipulação de dados em diferentes fontes, com inte
 - [Desenvolvimento](#desenvolvimento)
 - [Testes](#testes)
 - [Distribuição no PyPI](#distribuição-no-pypi)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ---
 
