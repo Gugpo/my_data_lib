@@ -1,5 +1,3 @@
-![CI](https://github.com/gugpo/my_data_lib/actions/workflows/ci.yml/badge.svg)
-
 # my_data_lib
 
 Uma biblioteca Python para manipulação de dados em diferentes fontes, com interface unificada e fácil de usar.
@@ -34,6 +32,7 @@ my_data_lib/
 │
 ├── examples/                   # Exemplos de uso
 │   ├── example_csv.py
+│   ├── example_ETL.py
 │   ├── example_postgres.py
 │   └── example_mongo.py
 │
@@ -124,14 +123,3 @@ Para empacotar e publicar uma nova versão:
    Use seu usuário do PyPI ou um API token.
 
 ---
-
-## Contribuição
-
-Contribuições são bem-vindas!  
-Abra uma issue ou envie um pull request.
-
----
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT.
