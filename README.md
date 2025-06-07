@@ -1,8 +1,8 @@
-![CI](https://github.com/your-username/your-repo/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/gugpo/my_data_lib/actions/workflows/ci.yml/badge.svg)
 
 # my_data_lib
 
-Uma biblioteca Python para manipulação de dados em CSV, PostgreSQL e MongoDB, com interface unificada e fácil de usar.
+Uma biblioteca Python para manipulação de dados em diferentes fontes, com interface unificada e fácil de usar.
 
 ---
 
