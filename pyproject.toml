@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "my_data_lib"
-version = "0.1.1"
+version = "0.1.2"
 description = "Uma biblioteca para manipulação de dados em diferentes fontes"
 authors = [
     { name="Gugpo", email="poliveiragpo@gmail.com" }
