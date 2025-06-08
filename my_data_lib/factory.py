@@ -21,12 +21,12 @@ def get_data_handler(
     elif source_type == "postgres":
         if not all([host, port, database, user, password]):
             raise ValueError("Parâmetros obrigatórios para PostgresHandler: host, port, database, user, password.")
+        connection_string = (
+            f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}"
+        )
         return PostgresHandler(
-            host=host,
-            port=port,
-            database=database,
-            user=user,
-            password=password
+            connection_string=connection_string,
+            table_name=None
         )
     elif source_type == "mongodb":
         if not all([uri, database, collection]):

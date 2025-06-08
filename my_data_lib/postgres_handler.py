@@ -6,12 +6,9 @@ import os
 from my_data_lib.logger import Logger
 
 class PostgresHandler:
-    def __init__(self, connection_string=None, table_name=None, engine=None):
+    def __init__(self, connection_string=None, table_name=None):
         self.table_name = table_name
-        if engine:
-            self.engine = engine
-        else:
-            self.engine = create_engine(connection_string)
+        self.engine = create_engine(connection_string)
         self.logger = Logger()
 
     def read(self) -> pd.DataFrame:
