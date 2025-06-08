@@ -37,8 +37,9 @@ my_data_lib/
 ├── tests/                      # Testes automatizados
 │   ├── __init__.py
 │   ├── test_csv_handler.py
-│   ├── test_postgres_handler.py
-│   └── test_mongodb_handler.py
+│   ├── test_mongodb_handler.py
+│   ├── test_mypy.pyy
+│   └── test_postgres_handler.py
 │
 ├── requirements.txt
 ├── pyproject.toml
