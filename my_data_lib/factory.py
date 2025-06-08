@@ -5,15 +5,15 @@ from .mongodb_handler import MongoDBHandler
 
 def get_data_handler(
     source_type: Literal["csv", "postgres", "mongodb"],
-    path: Optional[str] = None,
-    host: Optional[str] = None,
-    port: Optional[int] = None,
-    database: Optional[str] = None,
-    user: Optional[str] = None,
-    password: Optional[str] = None,
-    uri: Optional[str] = None,
-    collection: Optional[str] = None,
-    table_name: Optional[str] = None
+    path: str = "",
+    host: str = "",
+    port: int = 0,
+    database: str = "",
+    user: str = "",
+    password: str = "",
+    uri: str = "",
+    collection: str = "",
+    table_name: str = ""
 ) -> Union[CSVHandler, PostgresHandler, MongoDBHandler]:
     """
     Cria e retorna um handler de dados conforme o tipo de fonte.
