@@ -12,8 +12,22 @@ def get_data_handler(
     user: Optional[str] = None,
     password: Optional[str] = None,
     uri: Optional[str] = None,
-    collection: Optional[str] = None
+    collection: Optional[str] = None,
+    table_name: Optional[str] = None
 ) -> Union[CSVHandler, PostgresHandler, MongoDBHandler]:
+    """
+    Cria e retorna um handler de dados conforme o tipo de fonte.
+
+    Parâmetros:
+        source_type (str): 'csv', 'postgres' ou 'mongodb'.
+        path (str): Necessário para CSV.
+        host, port, database, user, password (str/int): Necessários para Postgres.
+        uri, database, collection (str): Necessários para MongoDB.
+        table_name (str, opcional): Nome da tabela para Postgres.
+
+    Retorna:
+        Instância do handler correspondente.
+    """
     if source_type == "csv":
         if not path:
             raise ValueError("O parâmetro 'path' é obrigatório para CSVHandler.")

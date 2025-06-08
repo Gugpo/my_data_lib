@@ -1,3 +1,7 @@
+"""
+Testes para o handler de MongoDB da biblioteca my_data_lib.
+"""
+
 from unittest.mock import MagicMock, patch
 import pytest
 import pandas as pd
@@ -5,6 +9,9 @@ from my_data_lib.mongodb_handler import MongoDBHandler
 
 @pytest.fixture
 def mock_mongo_client():
+    """
+    Fixture que faz mock do MongoClient do pymongo para testes sem conexão real.
+    """
     with patch("my_data_lib.mongodb_handler.MongoClient") as MockClient:
         mock_client = MockClient.return_value
         mock_db = mock_client.__getitem__.return_value
@@ -22,13 +29,14 @@ def mock_mongo_client():
         yield MockClient
 
 def test_mongodb_read_write(mock_mongo_client):
+    """
+    Testa se o MongoDBHandler consegue ler e escrever corretamente usando mocks.
+    """
     handler = MongoDBHandler(uri="mongodb://fake_uri", database="db", collection="col")
     
-    # Testa read
     df = handler.read()
     assert not df.empty
     assert "nome" in df.columns
 
-    # Testa write (verifica se insert_many foi chamado)
     handler.write(df)
     mock_mongo_client.return_value.__getitem__.return_value.__getitem__.return_value.insert_many.assert_called_once()
