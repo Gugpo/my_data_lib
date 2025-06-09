@@ -50,7 +50,7 @@ my_data_lib/
 
 ## Requisitos
 
-- Python 3.12 ou superior
+- Python 3.11 ou superior
 
 ---
 
