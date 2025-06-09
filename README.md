@@ -48,6 +48,12 @@ my_data_lib/
 
 ---
 
+## Requisitos
+
+- Python 3.12 ou superior
+
+---
+
 ## Instalação
 
 Instale a biblioteca diretamente do PyPI:
